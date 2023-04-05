@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100]; // maximum array size of 100
+    int size, largest1, largest2;
+
+    printf("Enter the size of the array (maximum 100): ");
+    scanf("%d", &size);
+
+    printf("Enter the elements of the array: \n");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    largest1 = arr[0];
+    largest2 = arr[1];
+
+    if (largest2 > largest1) {
+        // swap largest1 and largest2
+        int temp = largest1;
+        largest1 = largest2;
+        largest2 = temp;
+    }
+
+    for (int i = 2; i < size; i++) {
+        if (arr[i] > largest1) {
+            largest2 = largest1;
+            largest1 = arr[i];
+        }
+        else if (arr[i] > largest2) {
+            largest2 = arr[i];
+        }
+    }
+
+    printf("The largest two elements in the array are %d and %d\n", largest1, largest2);
+
+    return 0;
+}

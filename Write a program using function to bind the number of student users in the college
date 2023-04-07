@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int get_student_users()
+{
+    int num_students;
+    printf("Enter the number of student users: ");
+    scanf("%d", &num_students);
+    return num_students;
+}
+
+int get_total_users(int num_students, int num_staff, int num_nts)
+{
+    int total_users = num_students + num_staff + num_nts;
+    return total_users;
+}
+
+void get_staff_users(int* num_staff, int* num_nts)
+{
+    printf("Enter the number of staff users: ");
+    scanf("%d", num_staff);
+    *num_nts = *num_staff / 3;
+}
+
+int main()
+{
+    int num_students, num_staff, num_nts, total_users;
+
+    num_students = get_student_users();
+    get_staff_users(&num_staff, &num_nts);
+    total_users = get_total_users(num_students, num_staff, num_nts);
+
+    printf("Number of student users: %d\n", num_students);
+    printf("Number of staff users: %d\n", num_staff);
+    printf("Number of non-teaching staff users: %d\n", num_nts);
+    printf("Total number of users: %d\n", total_users);
+
+    return 0;
+}

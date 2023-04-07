@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+float calculate_interest(float principal, int years, char is_senior) {
+    float rate = is_senior == 'y' ? 0.12 : 0.1;
+    return principal * rate * years;
+}
+
+int main() {
+    float principal;
+    int years;
+    char is_senior;
+
+    printf("Enter the principal amount: ");
+    scanf("%f", &principal);
+
+    printf("Enter the no of years: ");
+    scanf("%d", &years);
+
+    printf("Is customer senior citizen (y/n): ");
+    scanf(" %c", &is_senior);
+
+    float interest = calculate_interest(principal, years, is_senior);
+
+    printf("Interest: %.2f\n", interest);
+
+    return 0;
+}

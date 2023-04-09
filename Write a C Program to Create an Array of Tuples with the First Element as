@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+#define MAX_SIZE 10
+
+int main() {
+    int i;
+    int arr[MAX_SIZE];
+    int len;
+    typedef struct {
+        int num;
+        int square;
+    } tuple;
+    tuple tuples[MAX_SIZE];
+
+    printf("Enter the length of the array (maximum %d): ", MAX_SIZE);
+    scanf("%d", &len);
+
+    if (len > MAX_SIZE) {
+        printf("Maximum array length exceeded. Please try again.\n");
+        return 1;
+    }
+
+    printf("Enter %d numbers:\n", len);
+    for (i = 0; i < len; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    for (i = 0; i < len; i++) {
+        tuples[i].num = arr[i];
+        tuples[i].square = arr[i] * arr[i];
+    }
+
+    printf("The array of tuples is:\n");
+    for (i = 0; i < len; i++) {
+        printf("(%d, %d) ", tuples[i].num, tuples[i].square);
+    }
+    printf("\n");
+
+    return 0;
+}

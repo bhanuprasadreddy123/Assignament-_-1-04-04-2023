@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+   char statement[1000];
+   int i, count = 0;
+
+   printf("Enter a statement: ");
+   fgets(statement, 1000, stdin);
+
+   for (i = 0; statement[i] != '\0'; i++) {
+      if (!(statement[i] >= 'a' && statement[i] <= 'z') && !(statement[i] >= 'A' && statement[i] <= 'Z') && !(statement[i] >= '0' && statement[i] <= '9') && statement[i] != ' ') {
+         count++;
+      }
+   }
+
+   printf("The number of special characters in the statement is %d.\n", count);
+
+   return 0;
+}

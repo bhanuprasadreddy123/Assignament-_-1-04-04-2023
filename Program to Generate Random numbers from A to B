@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int A, B, num, i, n;
+    srand(time(NULL));  // Seed the random number generator
+
+    printf("Enter the lower and upper limits of the range (A and B): ");
+    scanf("%d %d", &A, &B);
+
+    printf("Enter the number of random numbers you want to generate: ");
+    scanf("%d", &n);
+
+    printf("The generated random numbers are:\n");
+
+    for (i = 1; i <= n; i++) {
+        num = rand() % (B - A + 1) + A;  // Generate a random number between A and B
+        printf("%d ", num);
+    }
+
+    return 0;
+}
